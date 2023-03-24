@@ -8,12 +8,14 @@ export const Header = () => {
 
   return (
     <AppBar
-      position="static"
+      position="sticky"
       sx={{
+        top: 0,
+        left: 0,
         width: '1200px',
         margin: '0 auto',
         boxShadow: 'none',
-        backgroundColor: 'transparent',
+        backgroundColor: '#fefefe',
       }}
     >
       <Toolbar sx={{ justifyContent: 'space-between' }}>

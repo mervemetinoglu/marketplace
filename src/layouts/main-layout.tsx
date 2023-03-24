@@ -1,4 +1,5 @@
 import React from 'react';
+import { Container, Stack } from '@mui/material';
 import { Footer } from '@/components/footer';
 import { Header } from '@/components/header';
 
@@ -8,11 +9,11 @@ export interface ILayoutProps {
 
 const Layout = ({ children }: ILayoutProps) => {
   return (
-    <>
-      <Header />
-      <main>{children}</main>
-      <Footer />
-    </>
+    <Stack >
+      <Header  />
+      <Container>{children}</Container>
+      {/* <Footer /> */}
+    </Stack>
   );
 };
 
