@@ -6,9 +6,9 @@ interface ApiResponse<T> {
   error?: string;
 }
 
-const API_URL = process.env.API_URL;
+const API_URL = process.env.NEXT_PUBLIC_API_URL;
 
-const apiInstance: AxiosInstance = axios.create({
+const apiInstance = axios.create({
   baseURL: API_URL,
   headers: {
     'Content-Type': 'application/json',
@@ -16,16 +16,16 @@ const apiInstance: AxiosInstance = axios.create({
   },
 });
 
-apiInstance.interceptors.response.use(
-  (response: AxiosResponse<ApiResponse<any>>) => {
-    if (response.data.error) {
-      throw new Error(response.data.error);
-    }
-    return response.data.data;
-  },
-  (error: AxiosError) => {
-    throw new Error(error.message);
-  }
-);
+// apiInstance.interceptors.response.use(
+//   (response: AxiosResponse<ApiResponse<any>>) => {
+//     if (response.data.error) {
+//       throw new Error(response.data.error);
+//     }
+//     return response.data.data;
+//   },
+//   (error: AxiosError) => {
+//     throw new Error(error.message);
+//   }
+// );
 
 export { apiInstance, type ApiResponse };
