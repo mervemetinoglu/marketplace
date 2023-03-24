@@ -48,9 +48,17 @@ const theme = createTheme({
     MuiIconButton: {
       styleOverrides: {
         root: {
-          '&:hover': {
-            backgroundColor: 'transparent',
-          },
+          fontFamily: 'inherit',
+          // '&:hover': {
+          //   backgroundColor: 'transparent',
+          // },
+        },
+      },
+    },
+    MuiButton: {
+      styleOverrides: {
+        root: {
+          textTransform: 'none',
         },
       },
     },
