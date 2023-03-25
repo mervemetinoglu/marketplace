@@ -1,37 +1,36 @@
-import { Box, Button, Stack, Typography } from '@mui/material';
+import { Button, Stack, Typography } from '@mui/material';
 import React from 'react';
 
-type Props = {};
+export interface IOrderSummaryProps {
+  total: number;
+  quantity: number;
+}
 
-export const OrderSummary = (props: Props) => {
+export const OrderSummary = (props: IOrderSummaryProps) => {
+  const { total, quantity } = props;
+
   return (
     <Stack
       sx={{
-        ml: 3,
+        ml: {
+          xs: 0,
+          md: 3,
+        },
       }}
     >
       <Typography
         sx={{
+          fontWeight: 700,
           fontSize: '1.2rem',
-          fontWeight: 600,
         }}
       >
         Order Summary
       </Typography>
-
       <Stack mt={2} flexDirection="row" alignItems="center">
-        <Typography>Subtotal:</Typography>
-        <Typography ml={2}>$100</Typography>
+        <Typography fontWeight={600}>{`Subtotal (${quantity}):`}</Typography>
+        <Typography ml={2} fontWeight={600}>{`$${total}`}</Typography>
       </Stack>
-
-      <Button
-        sx={{
-          mt: 2,
-          bgcolor: 'red',
-        }}
-      >
-        Checkout
-      </Button>
+      <Button sx={{ mt: 2 }}>Checkout</Button>
     </Stack>
   );
 };

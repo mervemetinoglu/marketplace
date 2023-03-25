@@ -14,7 +14,7 @@ export const ProductList = forwardRef<HTMLDivElement, IProductListProps>(
     return (
       <Grid container spacing={3} ref={forwardedRef} {...rest}>
         {items.map((item) => (
-          <ProductListItem key={item.id} product={item} />
+          <ProductListItem key={item.id} productData={item} />
         ))}
       </Grid>
     );

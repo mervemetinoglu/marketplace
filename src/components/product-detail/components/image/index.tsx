@@ -1,6 +1,6 @@
 import React from 'react';
 import Image from 'next/image';
-import { Box } from '@mui/material';
+import { Box, useTheme } from '@mui/material';
 
 export interface IProductImageProps {
   src: string;
@@ -9,24 +9,29 @@ export interface IProductImageProps {
 
 export const ProductImage = (props: IProductImageProps) => {
   const { src, alt } = props;
+  const muiTheme = useTheme();
 
   return (
     <Box
       sx={{
-        border: '1px solid #e0e0e0',
-        borderRadius: 1,
-        width: '300px',
-        height: '300px',
-        position: 'relative',
+        [muiTheme.breakpoints.up('sm')]: {
+          width: '100%',
+          display: 'flex',
+          borderRadius: 1,
+          alignItems: 'center',
+          justifyItems: 'center',
+          border: (theme) => theme.customBorders.borderSolid1,
+        },
       }}
     >
       <Image
+        priority
         alt={alt}
         src={src}
-        priority
-        layout="fill"
-        objectFit="contain"
         unoptimized
+        width={500}
+        height={300}
+        objectFit="contain"
         loader={({ src: _src }) => _src}
       />
     </Box>

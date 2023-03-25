@@ -14,8 +14,12 @@ export const ProductListItemContent = (props: IProductListItemContentProps) => {
       <Typography
         variant="subtitle1"
         sx={{
-          textTransform: 'capitalize',
           fontWeight: 600,
+          height: '1.5rem',
+          overflow: 'hidden',
+          whiteSpace: 'nowrap',
+          textOverflow: 'ellipsis',
+          textTransform: 'capitalize',
         }}
       >
         {title}
@@ -24,9 +28,9 @@ export const ProductListItemContent = (props: IProductListItemContentProps) => {
         variant="body2"
         color="textSecondary"
         sx={{
-          mt: 0.5,
-          overflow: 'hidden',
+          mt: 1,
           height: '3.6rem',
+          overflow: 'hidden',
         }}
       >
         {description}

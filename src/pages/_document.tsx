@@ -8,9 +8,8 @@ import Document, {
   DocumentContext,
 } from 'next/document';
 import createEmotionServer from '@emotion/server/create-instance';
-import createEmotionCache from '@/app/createEmotionCache';
-import theme from '../app/theme';
-import { MyAppProps } from './_app';
+import createEmotionCache from '@/app/create-emotion-cache';
+import { IAppWrapperProps } from '@/app/app-wrapper';
 
 interface MyDocumentProps extends DocumentProps {
   emotionStyleTags: JSX.Element[];
@@ -20,7 +19,6 @@ export default function MyDocument({ emotionStyleTags }: MyDocumentProps) {
   return (
     <Html lang="en">
       <Head>
-        <meta name="theme-color" content={theme.palette.primary.main} />
         <link rel="shortcut icon" href="/favicon.ico" />
         <meta name="emotion-insertion-point" content="" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -54,7 +52,7 @@ MyDocument.getInitialProps = async (ctx: DocumentContext) => {
     originalRenderPage({
       enhanceApp: (
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
-        App: React.ComponentType<React.ComponentProps<any> & MyAppProps>
+        App: React.ComponentType<React.ComponentProps<any> & IAppWrapperProps>
       ) =>
         function EnhanceApp(props) {
           return <App emotionCache={cache} {...props} />;

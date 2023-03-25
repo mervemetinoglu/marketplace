@@ -15,6 +15,9 @@ export const CartProductListItemContent = (
     <CardContent
       sx={{
         padding: 0,
+        ml: {
+          xs: 2,
+        },
       }}
     >
       <Typography
@@ -33,8 +36,8 @@ export const CartProductListItemContent = (
           mt: 0.5,
           width: '300px',
           overflow: 'hidden',
-          textOverflow: 'ellipsis',
           whiteSpace: 'nowrap',
+          textOverflow: 'ellipsis',
         }}
       >
         {description}

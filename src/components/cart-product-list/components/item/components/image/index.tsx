@@ -4,26 +4,25 @@ import { Box } from '@mui/material';
 
 export interface ICartProductListItemImageProps {
   src: string;
+  title: string;
 }
 
 export const CartProductListItemImage = (
   props: ICartProductListItemImageProps
 ) => {
-  const { src } = props;
+  const { src, title } = props;
 
   return (
-    <Box
-      sx={{
-        width: '100%',
-        height: '100%',
-      }}
-    >
+    <Box>
       <Image
-        src="https://m.media-amazon.com/images/I/71TQv0sUI9L._AC_UF1000,1000_QL80_.jpg"
-        alt="aa"
-        width="100px"
-        height="150px"
+        priority
+        src={src}
+        alt={title}
+        unoptimized
+        width={100}
+        height={100}
         objectFit="contain"
+        loader={({ src: _src }) => _src}
       />
     </Box>
   );

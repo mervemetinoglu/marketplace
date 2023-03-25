@@ -3,33 +3,48 @@ import { Typography, CardActions, Button } from '@mui/material';
 
 export interface IProductListItemActionsProps {
   price: number;
+  onAddToCart: () => void;
 }
 
 export const ProductListItemActions = (props: IProductListItemActionsProps) => {
-  const { price } = props;
+  const { price, onAddToCart } = props;
 
   return (
     <CardActions
       sx={{
-        justifyContent: 'space-between',
-        mt: 3,
         p: 0,
+        mt: {
+          xs: 0.5,
+          md: 1,
+        },
         py: 1,
+        flexWrap: 'wrap',
       }}
     >
       <Typography
         variant="body2"
         sx={{
-          fontSize: '1.2rem',
           fontWeight: 700,
+          fontSize: {
+            xs: '1.1rem',
+            md: '1.2rem',
+          },
+          mb: 2,
+          ml: 'auto',
         }}
       >
-        {price} TL
+        ${price}
       </Typography>
       <Button
         sx={{
-          ml: 1,
-          textTransform: 'none',
+          width: {
+            xs: '100%',
+          },
+        }}
+        variant="contained"
+        onClick={(e) => {
+          e.preventDefault();
+          onAddToCart();
         }}
       >
         Add to Cart

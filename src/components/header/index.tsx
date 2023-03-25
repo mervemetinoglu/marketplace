@@ -1,10 +1,30 @@
 import React from 'react';
 import { Link } from '@/components/link';
-import { Stack, AppBar, Toolbar, Typography, useTheme } from '@mui/material';
-import { HiOutlineHeart, HiOutlineShoppingCart } from 'react-icons/hi';
+import {
+  Stack,
+  Badge,
+  AppBar,
+  Toolbar,
+  useTheme,
+  Typography,
+  IconButton,
+  AppBarProps,
+} from '@mui/material';
+import {
+  HiOutlineSun,
+  HiOutlineMoon,
+  HiOutlineHeart,
+  HiOutlineShoppingCart,
+} from 'react-icons/hi';
+import { useCart } from '@/hooks/useCart';
+import { useThemeToggle } from '@/hooks/useThemeToggle';
 
-export const Header = () => {
+export type IHeaderProps = AppBarProps;
+
+export const Header = (props: IHeaderProps) => {
   const muiTheme = useTheme();
+  const { totalQuantity } = useCart();
+  const { isDarkMode, handleToggleTheme } = useThemeToggle();
 
   return (
     <AppBar
@@ -12,35 +32,96 @@ export const Header = () => {
       sx={{
         top: 0,
         left: 0,
-        width: '1200px',
-        margin: '0 auto',
         boxShadow: 'none',
-        backgroundColor: '#fefefe',
+        backgroundColor: muiTheme.customColors.white2,
+        borderBottom: muiTheme.customBorders.borderSolid1,
       }}
+      {...props}
     >
-      <Toolbar sx={{ justifyContent: 'space-between' }}>
+      <Toolbar
+        sx={{
+          px: 1,
+          justifyContent: 'space-between',
+          [muiTheme.breakpoints.up('md')]: {
+            width: '1200px',
+            margin: '0 auto',
+          },
+        }}
+      >
         <Link href="/">
-          <Typography aria-label="logo" variant="h3">
-            Logo
+          <Typography
+            aria-label="logo"
+            sx={{
+              fontWeight: 600,
+              fontSize: {
+                xs: '1.5rem',
+                md: '2.5rem',
+              },
+              color: '#6D8B74',
+            }}
+          >
+            marketplace
           </Typography>
         </Link>
         <nav>
           <Stack
-            flexDirection="row"
             sx={{
-              width: '180px',
+              flexDirection: 'row',
               alignItems: 'center',
-              justifyContent: 'space-between',
+              '& svg': {
+                fontSize: {
+                  xs: '1.3rem',
+                  md: '1.5rem',
+                },
+                stroke: muiTheme.customColors.gray20,
+              },
             }}
           >
             <Link href="/favorites">
-              <HiOutlineHeart stroke={muiTheme.customColors.red} size="1.4em" />
-              <Typography ml={1}>Favorites</Typography>
+              <HiOutlineHeart />
+              <Typography
+                sx={{
+                  ml: 1,
+                  display: {
+                    xs: 'none',
+                    md: 'inline',
+                  },
+                }}
+              >
+                Favorites
+              </Typography>
             </Link>
-            <Link href="/cart">
-              <HiOutlineShoppingCart size="1.4em" />
-              <Typography ml={1}>Cart</Typography>
+            <Link href="/cart" sx={{ ml: 2 }}>
+              <Badge badgeContent={totalQuantity} color="primary">
+                <HiOutlineShoppingCart />
+              </Badge>
+              <Typography
+                sx={{
+                  ml: 1,
+                  display: {
+                    xs: 'none',
+                    md: 'inline',
+                  },
+                }}
+              >
+                Cart
+              </Typography>
             </Link>
+            <IconButton
+              disableRipple
+              onClick={handleToggleTheme}
+              sx={{
+                ml: {
+                  xs: 1,
+                  md: 2,
+                },
+                '&:hover': {
+                  boxShadow: 'none',
+                },
+              }}
+            >
+              {isDarkMode ? <HiOutlineSun /> : <HiOutlineMoon />}
+            </IconButton>
           </Stack>
         </nav>
       </Toolbar>

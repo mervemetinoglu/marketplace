@@ -1,9 +1,9 @@
 import React from 'react';
 import Head from 'next/head';
-import { ProductContainer } from '@/containers/product-container';
 import { GetServerSideProps } from 'next';
-import { fetchProduct } from '@/services/products.service';
 import { IProduct } from '@/models/products.model';
+import { fetchProduct } from '@/services/products.service';
+import { ProductContainer } from '@/containers/product-container';
 
 export interface IProductDetailProps {
   productData: IProduct;
@@ -19,9 +19,7 @@ const ProductDetail = (props: IProductDetailProps) => {
         <meta name="description" content="Product Detail Page" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
-      <main>
-        <ProductContainer productData={productData} />
-      </main>
+      <ProductContainer productData={productData} />
     </>
   );
 };

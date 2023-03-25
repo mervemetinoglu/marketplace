@@ -18,3 +18,9 @@ export interface IProductsResponse {
   limit: number;
   products: IProduct[];
 }
+
+export interface IProducts {
+  item: IProduct;
+  quantity: number;
+  totalPrice: number;
+}

@@ -1,6 +1,6 @@
 import React from 'react';
 import Head from 'next/head';
-import { ProductListContainer } from '@/containers/product-list-container';
+import { FavoritesContainer } from '@/containers/favorites-container';
 
 const Favorites = () => {
   return (
@@ -10,9 +10,7 @@ const Favorites = () => {
         <meta name="description" content="Favorites Page" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
-      <main>
-        <ProductListContainer />
-      </main>
+      <FavoritesContainer />
     </>
   );
 };

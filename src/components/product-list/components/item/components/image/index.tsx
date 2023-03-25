@@ -1,50 +1,58 @@
 import React from 'react';
-import { IconButton, Box, useTheme } from '@mui/material';
-import { HiOutlineHeart } from 'react-icons/hi';
 import Image from 'next/image';
+import { HiOutlineHeart } from 'react-icons/hi';
+import { IconButton, Box, useTheme } from '@mui/material';
 
 export interface IProductListItemImageProps {
   src: string;
+  title: string;
+  isFavorite: boolean;
+  onToggleFavorite: () => void;
 }
 
 export const ProductListItemImage = (props: IProductListItemImageProps) => {
-  const { src } = props;
+  const { src, onToggleFavorite, isFavorite, title } = props;
   const muiTheme = useTheme();
 
   return (
-    <Box
-      sx={{
-        position: 'relative',
-      }}
-    >
+    <Box sx={{ position: 'relative', width: '100%', height: '100%' }}>
       <Image
+        priority
         src={src}
-        alt="aa"
-        width="100%"
-        height="100%"
-        layout="responsive"
-        objectFit="contain"
+        alt={title}
         unoptimized
+        width={300}
+        height={200}
+        objectFit="contain"
         loader={({ src: _src }) => _src}
       />
       <IconButton
+        disableRipple
+        onClick={(e) => {
+          e.preventDefault();
+          onToggleFavorite();
+        }}
         sx={{
-          position: 'absolute',
           top: 2,
           right: 0,
-          bgcolor: 'white',
-          boxShadow: '1px 1px 2px 1px #e0e0e0',
-          '&:hover': {
-            bgcolor: 'white',
-          },
+          position: 'absolute',
+          boxShadow: muiTheme.customShadows.shadow1,
+          backgroundColor: muiTheme.customColors.white2,
           '& svg': {
             '&:hover': {
-              fill: muiTheme.customColors.red,
+              fill: muiTheme.customColors.red100,
             },
           },
         }}
       >
-        <HiOutlineHeart stroke={muiTheme.customColors.red} />
+        {isFavorite ? (
+          <HiOutlineHeart
+            fill={muiTheme.customColors.red100}
+            stroke={muiTheme.customColors.red100}
+          />
+        ) : (
+          <HiOutlineHeart stroke={muiTheme.customColors.red100} />
+        )}
       </IconButton>
     </Box>
   );

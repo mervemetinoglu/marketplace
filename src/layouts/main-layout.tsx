@@ -9,9 +9,19 @@ export interface ILayoutProps {
 
 const Layout = ({ children }: ILayoutProps) => {
   return (
-    <Stack >
-      <Header  />
-      <Container>{children}</Container>
+    <Stack
+      sx={{
+        minHeight: '100vh',
+      }}
+    >
+      <Header />
+      <main
+        style={{
+          minHeight: 'calc(100vh - 64px)',
+        }}
+      >
+        <Container>{children}</Container>
+      </main>
       {/* <Footer /> */}
     </Stack>
   );

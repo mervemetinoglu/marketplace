@@ -1,37 +1,66 @@
 import React from 'react';
-import { Box, Button, Stack, Typography } from '@mui/material';
+import { Stack, useTheme } from '@mui/material';
 import { CartProductList } from '@/components/cart-product-list';
 import { OrderSummary } from '@/components/order-summary';
+import { useCart } from '@/hooks/useCart';
+import { NoDataWrapper } from '@/components/no-data';
+import { NO_DATA_CART_URL } from '@/constants/no-data-assets';
 
-type Props = {};
+export const CartContainer = () => {
+  const { cart, totalPrice, totalQuantity } = useCart();
+  const { products } = cart;
+  const muiTheme = useTheme();
 
-export const CartContainer = (props: Props) => {
-  return (
+  const isEmpty = products.length === 0;
+
+  return isEmpty ? (
+    <NoDataWrapper src={NO_DATA_CART_URL} />
+  ) : (
     <Stack
-      flexDirection="row"
-      alignItems={{ xs: 'center', md: 'flex-start' }}
       sx={{
-        mt: 5,
-        borderRadius: 1,
-        position: 'relative',
+        mt: 3,
+        [muiTheme.breakpoints.up('md')]: {
+          mt: 5,
+          // borderRadius: 1,
+          position: 'relative',
+          flexDirection: 'row',
+        },
       }}
     >
       <Stack
         sx={{
-          width: '70%',
-          padding: 1,
+          [muiTheme.breakpoints.up('md')]: {
+            padding: 1,
+            width: '70%',
+          },
         }}
       >
-        <CartProductList />
+        <CartProductList items={products} />
       </Stack>
       <Stack
         sx={{
-          width: '30%',
-          position: 'sticky',
-          top: 0,
+          [muiTheme.breakpoints.down('md')]: {
+            p: 1,
+            mt: 3,
+            pt: 2,
+            left: 0,
+            bottom: 0,
+            ml: '-16px',
+            position: 'sticky',
+            width: 'calc(100% + 32px)',
+            backgroundColor: muiTheme.customColors.white2,
+            borderTop: muiTheme.customBorders.borderSolid1,
+          },
+          [muiTheme.breakpoints.up('md')]: {
+            top: 80,
+            right: 2,
+            width: '30%',
+            position: 'sticky',
+            maxHeight: 'calc(100vh - 100px)',
+          },
         }}
       >
-        <OrderSummary />
+        <OrderSummary total={totalPrice} quantity={totalQuantity} />
       </Stack>
     </Stack>
   );

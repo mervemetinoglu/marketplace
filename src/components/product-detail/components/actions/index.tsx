@@ -1,35 +1,59 @@
-import { Box, Button, Stack, Typography } from '@mui/material';
 import React from 'react';
+import { Button, Stack, useTheme } from '@mui/material';
 
 export interface IProductActionsProps {
-  price: number;
+  isFavorite: boolean;
+  onAddToCart: () => void;
+  onAddToFavorite: () => void;
+  onRemoveFromFavorites: () => void;
 }
 
 export const ProductActions = (props: IProductActionsProps) => {
-  const { price } = props;
+  const muiTheme = useTheme();
+  const { isFavorite, onAddToCart, onAddToFavorite, onRemoveFromFavorites } =
+    props;
 
   return (
-    <Stack alignSelf="flex-end" p={2}>
-      <Typography
-        variant="body1"
-        sx={{
-          fontSize: 20,
-          fontWeight: '700',
-          alignSelf: 'flex-end',
-        }}
-      >
-        {`Price: $${price}`}
-      </Typography>
-      <Box mt={3}>
-        <Button sx={{}}>Add to Favorites</Button>
+    <Stack
+      sx={{
+        width: '100%',
+        flexDirection: 'row',
+        alignSelf: {
+          xs: 'flex-start',
+          md: 'flex-end',
+        },
+      }}
+    >
+      {isFavorite ? (
+        <Button onClick={onRemoveFromFavorites}>Remove from Favorites</Button>
+      ) : (
         <Button
           sx={{
-            ml: 1,
+            py: '10px',
+            width: '100%',
+            [muiTheme.breakpoints.up('md')]: {
+              minWidth: 150,
+              maxWidth: 150,
+            },
           }}
+          onClick={onAddToFavorite}
         >
-          Add to Cart
+          Add to Favorites
         </Button>
-      </Box>
+      )}
+      <Button
+        sx={{
+          ml: 3,
+          width: '100%',
+          [muiTheme.breakpoints.up('md')]: {
+            minWidth: 150,
+            maxWidth: 150,
+          },
+        }}
+        onClick={onAddToCart}
+      >
+        Add to Cart
+      </Button>
     </Stack>
   );
 };

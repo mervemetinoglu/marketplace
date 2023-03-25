@@ -1,40 +1,55 @@
 import React from 'react';
 import { Grid, GridProps } from '@mui/material';
+import { IProducts } from '@/models/products.model';
+import { useDeleteProductModal } from '@/hooks/useDeleteProductModal';
+import { DeleteProductModal } from '@/components/delete-product-modal';
 import { CartProductListItem } from './components';
 
-export type ICartProductListProps = Omit<GridProps, 'children'>;
+export interface ICartProductListProps extends Omit<GridProps, 'children'> {
+  items: IProducts[];
+}
 
 export const CartProductList = (props: ICartProductListProps) => {
-  const { ...rest } = props;
+  const { items, ...rest } = props;
+
+  const {
+    isOpen,
+    productData,
+    handleClose,
+    handleDelete,
+    handleConfirm,
+    handleDeleteAndAddFavorite,
+  } = useDeleteProductModal();
 
   return (
     <Grid
       container
       spacing={2}
-      {...rest}
       sx={{
-        borderRight: '1px solid #e0e0e0',
+        minHeight: {
+          xs: 'calc(100vh - 235px)',
+        },
+        borderRight: {
+          md: (theme) => theme.customBorders.borderSolid1,
+        },
       }}
+      {...rest}
     >
-      {[...Array(10)].map((_, index) => (
+      {items.map((item) => (
         <CartProductListItem
-          key={index}
-          product={{
-            title: 'title',
-            thumbnail: 'thumbnail',
-            description:
-              'Tune in to the Make it Big Podcast — our thought leadership audio series for retailers, entrepreneurs and ecommerce professionals. Youll get expert insights, strategies and tactics to help grow your business.',
-            price: 1,
-            brand: 'brand',
-            id: 1,
-            category: 'category',
-            discountPercentage: 1,
-            images: ['images'],
-            rating: 1,
-            stock: 1,
-          }}
+          key={item.item.id}
+          productData={item}
+          onClickDelete={handleDelete}
         />
       ))}
+      {isOpen && productData && (
+        <DeleteProductModal
+          onClose={handleClose}
+          productData={productData}
+          onClickConfirm={handleConfirm}
+          onClickDeleteAndAddFavorite={handleDeleteAndAddFavorite}
+        />
+      )}
     </Grid>
   );
 };
