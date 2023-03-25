@@ -1,4 +1,4 @@
-import { apiInstance, ApiResponse } from '@/app/axios';
+import { apiInstance } from '@/app/axios';
 import { IProduct, IProductsResponse } from '@/models/products.model';
 
 export const fetchProducts = async ({
