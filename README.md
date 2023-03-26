@@ -34,4 +34,4 @@ This software uses the following packages:
 
 ## Performance 
 
-![Lighthouse Performance](https://github.com/mervemetinoglu/marketplace/tree/main/public/assets/readme/performance.png)
+![Lighthouse Performance](public/assets/readme/performance.png)
