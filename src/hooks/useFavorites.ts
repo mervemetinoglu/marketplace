@@ -4,11 +4,11 @@ import {
   selectFavorites,
 } from '@/features/favorites';
 import { IProduct } from '@/models/products.model';
-import { useDispatch, useSelector } from 'react-redux';
+import { useAppDispatch, useAppSelector } from '@/app/store/hooks';
 
 export const useFavorites = () => {
-  const dispatch = useDispatch();
-  const favorites = useSelector(selectFavorites);
+  const dispatch = useAppDispatch();
+  const favorites = useAppSelector(selectFavorites);
 
   const isFavoriteProduct = (productId: number) =>
     favorites.products.some((product: IProduct) => product.id === productId);
@@ -36,4 +36,4 @@ export const useFavorites = () => {
     removeFavoriteProduct,
     toggleFavoriteProduct,
   };
-}
+};

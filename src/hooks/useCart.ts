@@ -4,12 +4,12 @@ import {
   selectCart,
   updateProduct,
 } from '@/features/cart';
+import { useAppDispatch, useAppSelector } from '@/app/store/hooks';
 import { IProducts } from '@/models/products.model';
-import { useDispatch, useSelector } from 'react-redux';
 
 export const useCart = () => {
-  const dispatch = useDispatch();
-  const cart = useSelector(selectCart);
+  const dispatch = useAppDispatch();
+  const cart = useAppSelector(selectCart);
 
   const totalQuantity = cart.products.reduce(
     (total, product) => total + product.quantity,
