@@ -8,7 +8,7 @@ const logger = createLogger();
 const store = configureStore({
   reducer: rootReducer,
   middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(logger),
-  devTools: env.NODE_ENV === 'development',
+  devTools: env.NEXT_PUBLIC_NODE_ENV === 'development',
 });
 
 export type AppDispatch = typeof store.dispatch;
