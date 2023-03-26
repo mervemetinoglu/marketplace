@@ -43,6 +43,7 @@ export const OrderSummary = (props: IOrderSummaryProps) => {
         >{`$${total}`}</Typography>
       </Stack>
       <Button
+        aria-label="checkout"
         sx={{
           mt: 2,
           backgroundColor: (theme) => theme.customColors.productDetail.buttonBg,

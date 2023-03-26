@@ -26,6 +26,7 @@ export const ProductActions = (props: IProductActionsProps) => {
     >
       {isFavorite ? (
         <Button
+          aria-label="remove from favorites"
           sx={{
             py: '10px',
             width: '100%',
@@ -45,6 +46,7 @@ export const ProductActions = (props: IProductActionsProps) => {
         </Button>
       ) : (
         <Button
+          aria-label="add to favorites"
           sx={{
             py: '10px',
             width: '100%',
@@ -64,6 +66,7 @@ export const ProductActions = (props: IProductActionsProps) => {
         </Button>
       )}
       <Button
+        aria-label="add to cart"
         sx={{
           ml: 3,
           width: '100%',

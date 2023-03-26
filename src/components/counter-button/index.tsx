@@ -48,8 +48,9 @@ export const CounterButton = (props: ICounterButtonProps) => {
   return (
     <Stack flexDirection="row" alignItems="center" {...rest}>
       <Button
-        disabled={isMinDisabled}
         onClick={onDecrement}
+        disabled={isMinDisabled}
+        aria-label="decrement quantity"
         sx={{
           ...counterButtonStyle,
           ...buttonProps?.sx,
@@ -64,8 +65,9 @@ export const CounterButton = (props: ICounterButtonProps) => {
         {productQuantity}
       </Typography>
       <Button
-        disabled={isMaxDisabled}
         onClick={onIncrement}
+        disabled={isMaxDisabled}
+        aria-label="increment quantity"
         sx={{
           ...counterButtonStyle,
           ...buttonProps?.sx,

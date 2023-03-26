@@ -48,7 +48,7 @@ export const Header = (props: IHeaderProps) => {
           },
         }}
       >
-        <Link href="/">
+        <Link href="/" aria-label="home page">
           <Typography
             aria-label="logo"
             sx={{
@@ -77,7 +77,7 @@ export const Header = (props: IHeaderProps) => {
               },
             }}
           >
-            <Link href="/favorites">
+            <Link href="/favorites" aria-label="favorites">
               <HiOutlineHeart />
               <Typography
                 sx={{
@@ -92,7 +92,7 @@ export const Header = (props: IHeaderProps) => {
                 Favorites
               </Typography>
             </Link>
-            <Link href="/cart" sx={{ ml: 2 }}>
+            <Link href="/cart" sx={{ ml: 2 }} aria-label="cart">
               <Badge badgeContent={totalQuantity} color="primary">
                 <HiOutlineShoppingCart />
               </Badge>
@@ -111,6 +111,7 @@ export const Header = (props: IHeaderProps) => {
             </Link>
             <IconButton
               disableRipple
+              aria-label="toggle theme"
               onClick={handleToggleTheme}
               sx={{
                 ml: {

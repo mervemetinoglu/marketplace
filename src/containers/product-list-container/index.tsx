@@ -62,6 +62,8 @@ export const ProductListContainer = (props: IProductListContainerProps) => {
               }}
             >
               <CircularProgress
+                role="progressbar"
+                aria-label="loading"
                 sx={{
                   color: '#9BA17B',
                 }}

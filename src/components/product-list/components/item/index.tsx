@@ -23,7 +23,7 @@ export const ProductListItem = (props: IProductItemProps) => {
 
   return (
     <Grid item xs={6} md={3}>
-      <Link href={`/product/${id}`}>
+      <Link href={`/product/${id}`} aria-label="product-item">
         <Card
           sx={{
             padding: '5px 10px',

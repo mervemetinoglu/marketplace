@@ -28,6 +28,7 @@ export const ProductListItemImage = (props: IProductListItemImageProps) => {
       />
       <IconButton
         disableRipple
+        aria-label="favorite"
         onClick={(e) => {
           e.preventDefault();
           onToggleFavorite();

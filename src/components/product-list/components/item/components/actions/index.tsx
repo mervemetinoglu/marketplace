@@ -37,6 +37,7 @@ export const ProductListItemActions = (props: IProductListItemActionsProps) => {
         ${price}
       </Typography>
       <Button
+        aria-label="add to cart"
         sx={{
           width: {
             xs: '100%',

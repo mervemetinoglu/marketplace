@@ -144,6 +144,7 @@ export const DeleteProductModal = (props: IDeleteProductModalProps) => {
           }}
         >
           <Button
+            aria-label="delete-modal-confirm"
             onClick={onClickConfirm}
             sx={{
               display: 'flex',
@@ -154,6 +155,7 @@ export const DeleteProductModal = (props: IDeleteProductModalProps) => {
             <Typography sx={{ ml: 1 }}>Delete</Typography>
           </Button>
           <Button
+            aria-label="delete-modal-delete-and-add-favorite"
             onClick={onClickDeleteAndAddFavorite}
             sx={{
               display: 'flex',

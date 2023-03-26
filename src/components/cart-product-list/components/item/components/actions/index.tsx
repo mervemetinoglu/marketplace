@@ -52,7 +52,7 @@ export const CartProductListItemActions = (
       >
         ${price}
       </Typography>
-      <IconButton onClick={onRemoveProduct}>
+      <IconButton onClick={onRemoveProduct} aria-label="delete product">
         <HiOutlineTrash stroke={muiTheme.customColors.productCard.title} />
       </IconButton>
     </CardActions>
