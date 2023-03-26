@@ -31,3 +31,7 @@ This software uses the following packages:
 - [axios](https://axios-http.com/)
 - [lodash](https://lodash.com/)
 - [react-icons](https://react-icons.github.io/react-icons/)
+
+## Performance 
+
+![Lighthouse Performance](https://github.com/mervemetinoglu/marketplace/tree/main/public/assets/readme/performance.png)
