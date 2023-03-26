@@ -1,5 +1,5 @@
-import { Button, Stack, Typography } from '@mui/material';
 import React from 'react';
+import { Button, Stack, Typography, useTheme } from '@mui/material';
 
 export interface IOrderSummaryProps {
   total: number;
@@ -8,13 +8,30 @@ export interface IOrderSummaryProps {
 
 export const OrderSummary = (props: IOrderSummaryProps) => {
   const { total, quantity } = props;
+  const muiTheme = useTheme();
 
   return (
     <Stack
       sx={{
-        ml: {
-          xs: 0,
-          md: 3,
+        [muiTheme.breakpoints.down('md')]: {
+          p: 1,
+          mt: 3,
+          pt: 2,
+          left: 0,
+          bottom: 0,
+          ml: '-16px',
+          position: 'sticky',
+          width: 'calc(100% + 32px)',
+          borderTop: muiTheme.customBorders.borderSolid1,
+          backgroundColor: muiTheme.customColors.orderSummary.background,
+        },
+        [muiTheme.breakpoints.up('md')]: {
+          ml: 3,
+          top: 80,
+          right: 2,
+          flexBasis: '30%',
+          position: 'sticky',
+          maxHeight: 'calc(100vh - 100px)',
         },
       }}
     >

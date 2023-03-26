@@ -1,5 +1,5 @@
 import React from 'react';
-import { Grid, GridProps } from '@mui/material';
+import { GridProps, Stack } from '@mui/material';
 import { IProducts } from '@/models/products.model';
 import { useDeleteProductModal } from '@/hooks/useDeleteProductModal';
 import { DeleteProductModal } from '@/components/delete-product-modal';
@@ -22,10 +22,13 @@ export const CartProductList = (props: ICartProductListProps) => {
   } = useDeleteProductModal();
 
   return (
-    <Grid
+    <Stack
       container
       spacing={2}
       sx={{
+        flexBasis: {
+          md: '70%',
+        },
         minHeight: 'calc(100vh - 235px)',
         borderRight: {
           md: (theme) => theme.customBorders.borderSolid1,
@@ -48,6 +51,6 @@ export const CartProductList = (props: ICartProductListProps) => {
           onClickDeleteAndAddFavorite={handleDeleteAndAddFavorite}
         />
       )}
-    </Grid>
+    </Stack>
   );
 };
