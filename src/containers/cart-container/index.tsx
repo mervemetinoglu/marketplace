@@ -21,7 +21,6 @@ export const CartContainer = () => {
         mt: 3,
         [muiTheme.breakpoints.up('md')]: {
           mt: 5,
-          // borderRadius: 1,
           position: 'relative',
           flexDirection: 'row',
         },
@@ -48,7 +47,7 @@ export const CartContainer = () => {
             ml: '-16px',
             position: 'sticky',
             width: 'calc(100% + 32px)',
-            backgroundColor: muiTheme.customColors.white2,
+            backgroundColor: muiTheme.customColors.orderSummary.background,
             borderTop: muiTheme.customBorders.borderSolid1,
           },
           [muiTheme.breakpoints.up('md')]: {

@@ -3,13 +3,117 @@ import { createTheme } from '@mui/material/styles';
 declare module '@mui/material/styles' {
   interface Theme {
     customColors: {
-      gray20: string;
-      gray89: string;
-      green50: string;
-      green100: string;
-      red100: string;
-      white2: string;
-      white3: string;
+      appBar: {
+        color: string;
+        logoColor: string;
+        background: string;
+      };
+      productCard: {
+        title: string;
+        price: string;
+        background: string;
+        description: string;
+      };
+      productDetail: {
+        title: string;
+        price: string;
+        description: string;
+        buttonBg: string;
+        buttonColor: string;
+        buttonHoverBg: string;
+      };
+      favoriteButton: {
+        color: string;
+        background: string;
+      };
+      counterButton: {
+        color: string;
+        hoverBg: string;
+        textColor: string;
+        background: string;
+      };
+      cartProductCart: {
+        background: string;
+      };
+      orderSummary: {
+        title: string;
+        price: string;
+        subtitle: string;
+        background: string;
+        buttonBg: string;
+        buttonColor: string;
+        buttonHoverBg: string;
+      };
+      noData: {
+        color: string;
+        imageBg: string;
+      };
+      deleteProductModal: {
+        background: string;
+        color: string;
+      };
+    };
+    customBorders: {
+      borderSolid1: string;
+      borderSolidGreen100: string;
+    };
+
+    customShadows: {
+      shadow1: string;
+      cardShadow: string;
+    };
+  }
+  interface ThemeOptions {
+    customColors: {
+      appBar: {
+        color: string;
+        logoColor: string;
+        background: string;
+      };
+      productCard: {
+        title: string;
+        price: string;
+        background: string;
+        description: string;
+      };
+      productDetail: {
+        title: string;
+        price: string;
+        description: string;
+        buttonBg: string;
+        buttonColor: string;
+        buttonHoverBg: string;
+      };
+      favoriteButton: {
+        color: string;
+        background: string;
+      };
+      counterButton: {
+        color: string;
+        hoverBg: string;
+        textColor: string;
+        background: string;
+      };
+      cartProductCart: {
+        background: string;
+      };
+      orderSummary: {
+        title: string;
+        price: string;
+        subtitle: string;
+        background: string;
+        buttonBg: string;
+        buttonColor: string;
+        buttonHoverBg: string;
+      };
+      noData: {
+        color: string;
+        imageBg: string;
+      };
+      deleteProductModal: {
+        background: string;
+        color: string;
+      };
     };
 
     customBorders: {
@@ -19,39 +123,62 @@ declare module '@mui/material/styles' {
 
     customShadows: {
       shadow1: string;
-    };
-  }
-  interface ThemeOptions {
-    customColors: {
-      gray20: string;
-      gray89: string;
-      green50: string;
-      green100: string;
-      red100: string;
-      white2: string;
-      white3: string;
-    };
-
-    customBorders?: {
-      borderSolid1: string;
-      borderSolidGreen100: string;
-    };
-
-    customShadows?: {
-      shadow1: string;
+      cardShadow: string;
     };
   }
 }
 
 export const lightTheme = createTheme({
   customColors: {
-    gray20: '#333',
-    gray89: '#e5e5e5',
-    green50: '#dfe6e0',
-    green100: '#6D8B74',
-    red100: '#DD4A48',
-    white2: '#fefefe',
-    white3: '#e7e7e7',
+    appBar: {
+      color: '#333',
+      logoColor: '#6D8B74',
+      background: '#fefefe',
+    },
+    productCard: {
+      title: '#333',
+      price: '#333',
+      background: '#fff',
+      description: 'rgba(0, 0, 0, 0.6)',
+    },
+    productDetail: {
+      title: '#333',
+      price: '#333',
+      description: 'rgba(0, 0, 0, 0.6)',
+      buttonBg: '#6D8B74',
+      buttonColor: '#fefefe',
+      buttonHoverBg: '#849e8a',
+    },
+    favoriteButton: {
+      color: '#6D8B74',
+      background: '#fefefe',
+    },
+    counterButton: {
+      textColor: '#333',
+      color: '#6D8B74',
+      hoverBg: '#dfe6e0',
+      background: 'transparent',
+    },
+    cartProductCart: {
+      background: '#fefefe',
+    },
+    orderSummary: {
+      title: '#333',
+      price: '#333',
+      subtitle: '#333',
+      background: '#fefefe',
+      buttonBg: '#6D8B74',
+      buttonColor: '#fefefe',
+      buttonHoverBg: '#dfe6e0',
+    },
+    noData: {
+      color: '#333',
+      imageBg: '#e7e7e7',
+    },
+    deleteProductModal: {
+      background: '#fefefe',
+      color: '#333',
+    },
   },
   customBorders: {
     borderSolid1: '1px solid #e5e5e5',
@@ -59,10 +186,13 @@ export const lightTheme = createTheme({
   },
   customShadows: {
     shadow1: '1px 1px 2px 1px #e0e0e0',
+    cardShadow:
+      'rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px',
   },
   palette: {
     background: {
       default: '#fefefe',
+      paper: '#fefefe',
     },
     primary: {
       main: '#6D8B74',
@@ -120,24 +250,67 @@ export const lightTheme = createTheme({
 
 export const darkTheme = createTheme({
   customColors: {
-    gray20: '#333',
-    gray89: '#e5e5e5',
-    green50: '#dfe6e0',
-    green100: '#6D8B74',
-    red100: '#DD4A48',
-    white2: '#fefefe',
-    white3: '#e7e7e7',
+    appBar: {
+      color: '#E3E3E3',
+      logoColor: '#6D8B74',
+      background: '#1B1B1D',
+    },
+    productCard: {
+      title: '#E3E3E3',
+      price: '#E3E3E3',
+      background: '#6D8B74',
+      description: '#E3E3E3',
+    },
+    productDetail: {
+      title: '#6D8B74',
+      price: '#E3E3E3',
+      description: '#E3E3E3',
+      buttonBg: '#6D8B74',
+      buttonColor: '#fefefe',
+      buttonHoverBg: '#88a28e',
+    },
+    favoriteButton: {
+      color: '#6D8B74',
+      background: '#fefefe',
+    },
+    counterButton: {
+      textColor: '#E3E3E3',
+      color: '#E3E3E3',
+      hoverBg: '#88a28e',
+      background: '#6D8B74',
+    },
+    cartProductCart: {
+      background: '#1B1B1D',
+    },
+    orderSummary: {
+      title: '#6D8B74',
+      price: '#E3E3E3',
+      subtitle: '#6D8B74',
+      background: '#1B1B1D',
+      buttonBg: '#6D8B74',
+      buttonColor: '#fefefe',
+      buttonHoverBg: '#88a28e',
+    },
+    noData: {
+      color: '#E3E3E3',
+      imageBg: '#6D8B74',
+    },
+    deleteProductModal: {
+      background: '#c4d1c7',
+      color: '#1B1B1D',
+    },
   },
   customBorders: {
-    borderSolid1: '1px solid #e5e5e5',
+    borderSolid1: '2px solid #2c382e',
     borderSolidGreen100: '1px solid #6D8B74',
   },
   customShadows: {
     shadow1: '1px 1px 2px 1px #e0e0e0',
+    cardShadow: '  rgba(0, 0, 0, 0.1) 0px 10px 50px',
   },
   palette: {
     background: {
-      default: '#fefefe',
+      default: '#1B1B1D',
     },
     primary: {
       main: '#6D8B74',
@@ -146,7 +319,7 @@ export const darkTheme = createTheme({
       main: '#6D8B74',
     },
     text: {
-      primary: '#333',
+      primary: '#E3E3E3',
     },
   },
   typography: {
@@ -156,7 +329,7 @@ export const darkTheme = createTheme({
     MuiLink: {
       styleOverrides: {
         root: {
-          color: '#333',
+          color: '#E3E3E3',
           display: 'flex',
           alignItems: 'center',
           textDecoration: 'none',
@@ -173,11 +346,11 @@ export const darkTheme = createTheme({
     MuiButton: {
       styleOverrides: {
         root: {
-          color: '#fefefe',
+          color: '#E3E3E3',
           textTransform: 'none',
-          backgroundColor: '#6D8B74',
+          backgroundColor: '#1B1B1D',
           '&:hover': {
-            backgroundColor: '#849e8a',
+            backgroundColor: '#303030',
           },
         },
       },

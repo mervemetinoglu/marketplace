@@ -25,15 +25,37 @@ export const ProductActions = (props: IProductActionsProps) => {
       }}
     >
       {isFavorite ? (
-        <Button onClick={onRemoveFromFavorites}>Remove from Favorites</Button>
+        <Button
+          sx={{
+            py: '10px',
+            width: '100%',
+            [muiTheme.breakpoints.up('md')]: {
+              minWidth: 200,
+              maxWidth: 200,
+            },
+            backgroundColor: muiTheme.customColors.productDetail.buttonBg,
+            '&:hover': {
+              backgroundColor:
+                muiTheme.customColors.productDetail.buttonHoverBg,
+            },
+          }}
+          onClick={onRemoveFromFavorites}
+        >
+          Remove from Favorites
+        </Button>
       ) : (
         <Button
           sx={{
             py: '10px',
             width: '100%',
             [muiTheme.breakpoints.up('md')]: {
-              minWidth: 150,
-              maxWidth: 150,
+              minWidth: 200,
+              maxWidth: 200,
+            },
+            backgroundColor: muiTheme.customColors.productDetail.buttonBg,
+            '&:hover': {
+              backgroundColor:
+                muiTheme.customColors.productDetail.buttonHoverBg,
             },
           }}
           onClick={onAddToFavorite}
@@ -46,8 +68,12 @@ export const ProductActions = (props: IProductActionsProps) => {
           ml: 3,
           width: '100%',
           [muiTheme.breakpoints.up('md')]: {
-            minWidth: 150,
-            maxWidth: 150,
+            minWidth: 200,
+            maxWidth: 200,
+          },
+          backgroundColor: muiTheme.customColors.productDetail.buttonBg,
+          '&:hover': {
+            backgroundColor: muiTheme.customColors.productDetail.buttonHoverBg,
           },
         }}
         onClick={onAddToCart}

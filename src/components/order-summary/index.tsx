@@ -22,15 +22,38 @@ export const OrderSummary = (props: IOrderSummaryProps) => {
         sx={{
           fontWeight: 700,
           fontSize: '1.2rem',
+          color: (theme) => theme.customColors.orderSummary.title,
         }}
       >
         Order Summary
       </Typography>
       <Stack mt={2} flexDirection="row" alignItems="center">
-        <Typography fontWeight={600}>{`Subtotal (${quantity}):`}</Typography>
-        <Typography ml={2} fontWeight={600}>{`$${total}`}</Typography>
+        <Typography
+          fontWeight={600}
+          sx={{
+            color: (theme) => theme.customColors.orderSummary.subtitle,
+          }}
+        >{`Subtotal (${quantity}):`}</Typography>
+        <Typography
+          ml={2}
+          fontWeight={600}
+          sx={{
+            color: (theme) => theme.customColors.orderSummary.price,
+          }}
+        >{`$${total}`}</Typography>
       </Stack>
-      <Button sx={{ mt: 2 }}>Checkout</Button>
+      <Button
+        sx={{
+          mt: 2,
+          backgroundColor: (theme) => theme.customColors.productDetail.buttonBg,
+          '&:hover': {
+            backgroundColor: (theme) =>
+              theme.customColors.productDetail.buttonHoverBg,
+          },
+        }}
+      >
+        Checkout
+      </Button>
     </Stack>
   );
 };

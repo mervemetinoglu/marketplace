@@ -32,14 +32,17 @@ export const CartProductListItem = (props: ICartProductListItemProps) => {
         sx={{
           pb: 2,
           borderRadius: 0,
+          display: 'block',
           justifyContent: 'space-between',
           borderBottom: muiTheme.customBorders.borderSolid1,
+          backgroundColor: (theme) =>
+            theme.customColors.cartProductCart.background,
           [muiTheme.breakpoints.up('md')]: {
+            px: 3,
             display: 'flex',
-            alignItems: 'center',
             minHeight: '120px',
             maxHeight: '120px',
-            px: 3,
+            alignItems: 'center',
           },
         }}
       >

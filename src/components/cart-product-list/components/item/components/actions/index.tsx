@@ -47,12 +47,13 @@ export const CartProductListItemActions = (
             xs: '1.1rem',
             md: '1.2rem',
           },
+          color: (theme) => theme.customColors.productCard.price,
         }}
       >
         ${price}
       </Typography>
       <IconButton onClick={onRemoveProduct}>
-        <HiOutlineTrash stroke={muiTheme.customColors.gray20} />
+        <HiOutlineTrash stroke={muiTheme.customColors.productCard.title} />
       </IconButton>
     </CardActions>
   );

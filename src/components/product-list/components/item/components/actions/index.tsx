@@ -31,6 +31,7 @@ export const ProductListItemActions = (props: IProductListItemActionsProps) => {
           },
           mb: 2,
           ml: 'auto',
+          color: (theme) => theme.customColors.productCard.price,
         }}
       >
         ${price}
@@ -41,7 +42,6 @@ export const ProductListItemActions = (props: IProductListItemActionsProps) => {
             xs: '100%',
           },
         }}
-        variant="contained"
         onClick={(e) => {
           e.preventDefault();
           onAddToCart();

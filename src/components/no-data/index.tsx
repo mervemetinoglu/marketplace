@@ -27,7 +27,7 @@ export const NoDataWrapper = (props: INoDataWrapperProps) => {
         sx={{
           p: 6,
           borderRadius: '50%',
-          backgroundColor: (theme) => theme.customColors.white3,
+          backgroundColor: (theme) => theme.customColors.noData.imageBg,
         }}
       >
         <Image alt="No Data" src={src} width={150} height={150} />
@@ -38,6 +38,7 @@ export const NoDataWrapper = (props: INoDataWrapperProps) => {
           fontWeight: 600,
           fontSize: '1.2rem',
           textAlign: 'center',
+          color: (theme) => theme.customColors.noData.color,
         }}
       >
         {message ?? 'Oops! There is no data yet... 😞'}

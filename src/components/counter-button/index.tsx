@@ -19,11 +19,11 @@ const counterButtonStyle: SxProps<Theme> = {
   minWidth: 40,
   fontWeight: 600,
   fontSize: '1.2rem',
-  backgroundColor: 'transparent',
-  color: (theme) => theme.customColors.green100,
+  backgroundColor: (theme) => theme.customColors.counterButton.background,
+  color: (theme) => theme.customColors.counterButton.color,
   border: (theme) => theme.customBorders.borderSolidGreen100,
   '&:hover': {
-    backgroundColor: (theme) => theme.customColors.green50,
+    backgroundColor: (theme) => theme.customColors.counterButton.hoverBg,
   },
 };
 
@@ -57,7 +57,12 @@ export const CounterButton = (props: ICounterButtonProps) => {
       >
         <span>-</span>
       </Button>
-      <Typography mx={2}>{productQuantity}</Typography>
+      <Typography
+        mx={2}
+        sx={{ color: (theme) => theme.customColors.counterButton.textColor }}
+      >
+        {productQuantity}
+      </Typography>
       <Button
         disabled={isMaxDisabled}
         onClick={onIncrement}

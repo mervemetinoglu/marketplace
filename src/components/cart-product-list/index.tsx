@@ -26,9 +26,7 @@ export const CartProductList = (props: ICartProductListProps) => {
       container
       spacing={2}
       sx={{
-        minHeight: {
-          xs: 'calc(100vh - 235px)',
-        },
+        minHeight: 'calc(100vh - 235px)',
         borderRight: {
           md: (theme) => theme.customBorders.borderSolid1,
         },

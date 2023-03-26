@@ -12,14 +12,13 @@ const Layout = ({ children }: ILayoutProps) => {
     <Stack
       sx={{
         minHeight: '100vh',
+        '& > main': {
+          minHeight: 'calc(100vh - 64px)',
+        },
       }}
     >
       <Header />
-      <main
-        style={{
-          minHeight: 'calc(100vh - 64px)',
-        }}
-      >
+      <main>
         <Container>{children}</Container>
       </main>
       {/* <Footer /> */}

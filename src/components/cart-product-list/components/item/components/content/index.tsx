@@ -23,21 +23,22 @@ export const CartProductListItemContent = (
       <Typography
         variant="subtitle1"
         sx={{
-          textTransform: 'capitalize',
           fontWeight: 600,
+          textTransform: 'capitalize',
+          color: (theme) => theme.customColors.productCard.title,
         }}
       >
         {title}
       </Typography>
       <Typography
         variant="body2"
-        color="textSecondary"
         sx={{
           mt: 0.5,
           width: '300px',
           overflow: 'hidden',
           whiteSpace: 'nowrap',
           textOverflow: 'ellipsis',
+          color: (theme) => theme.customColors.productCard.description,
         }}
       >
         {description}

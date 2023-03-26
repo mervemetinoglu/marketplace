@@ -27,7 +27,10 @@ export const ProductListItem = (props: IProductItemProps) => {
         <Card
           sx={{
             padding: '5px 10px',
+            backgroundColor: (theme) =>
+              theme.customColors.productCard.background,
             border: (theme) => theme.customBorders.borderSolid1,
+            boxShadow: (theme) => theme.customShadows.cardShadow,
           }}
         >
           <ProductListItemImage
@@ -41,8 +44,8 @@ export const ProductListItem = (props: IProductItemProps) => {
             price={price}
             onAddToCart={() =>
               addProductToCart({
-                item: productData,
                 quantity: 1,
+                item: productData,
                 totalPrice: price,
               })
             }

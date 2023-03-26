@@ -37,21 +37,21 @@ export const ProductListItemImage = (props: IProductListItemImageProps) => {
           right: 0,
           position: 'absolute',
           boxShadow: muiTheme.customShadows.shadow1,
-          backgroundColor: muiTheme.customColors.white2,
+          backgroundColor: muiTheme.customColors.favoriteButton.background,
           '& svg': {
             '&:hover': {
-              fill: muiTheme.customColors.red100,
+              fill: muiTheme.customColors.favoriteButton.color,
             },
           },
         }}
       >
         {isFavorite ? (
           <HiOutlineHeart
-            fill={muiTheme.customColors.red100}
-            stroke={muiTheme.customColors.red100}
+            fill={muiTheme.customColors.favoriteButton.color}
+            stroke={muiTheme.customColors.favoriteButton.color}
           />
         ) : (
-          <HiOutlineHeart stroke={muiTheme.customColors.red100} />
+          <HiOutlineHeart stroke={muiTheme.customColors.favoriteButton.color} />
         )}
       </IconButton>
     </Box>

@@ -23,6 +23,7 @@ export const ProductContent = (props: IProductContentProps) => {
           [muiTheme.breakpoints.up('md')]: {
             maxHeight: 100,
           },
+          color: muiTheme.customColors.productDetail.title,
         }}
       >
         {title}
@@ -36,6 +37,7 @@ export const ProductContent = (props: IProductContentProps) => {
           [muiTheme.breakpoints.up('md')]: {
             maxHeight: 100,
           },
+          color: muiTheme.customColors.productDetail.description,
         }}
       >
         {description}
@@ -48,6 +50,7 @@ export const ProductContent = (props: IProductContentProps) => {
           },
           fontSize: 20,
           fontWeight: '700',
+          color: muiTheme.customColors.productDetail.price,
         }}
       >
         {`Price: $${price}`}

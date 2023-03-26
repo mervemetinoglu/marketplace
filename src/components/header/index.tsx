@@ -33,7 +33,7 @@ export const Header = (props: IHeaderProps) => {
         top: 0,
         left: 0,
         boxShadow: 'none',
-        backgroundColor: muiTheme.customColors.white2,
+        backgroundColor: muiTheme.customColors.appBar.background,
         borderBottom: muiTheme.customBorders.borderSolid1,
       }}
       {...props}
@@ -57,7 +57,7 @@ export const Header = (props: IHeaderProps) => {
                 xs: '1.5rem',
                 md: '2.5rem',
               },
-              color: '#6D8B74',
+              color: muiTheme.customColors.appBar.logoColor,
             }}
           >
             marketplace
@@ -73,7 +73,7 @@ export const Header = (props: IHeaderProps) => {
                   xs: '1.3rem',
                   md: '1.5rem',
                 },
-                stroke: muiTheme.customColors.gray20,
+                stroke: muiTheme.customColors.appBar.color,
               },
             }}
           >
@@ -86,6 +86,7 @@ export const Header = (props: IHeaderProps) => {
                     xs: 'none',
                     md: 'inline',
                   },
+                  color: muiTheme.customColors.appBar.color,
                 }}
               >
                 Favorites
@@ -102,6 +103,7 @@ export const Header = (props: IHeaderProps) => {
                     xs: 'none',
                     md: 'inline',
                   },
+                  color: muiTheme.customColors.appBar.color,
                 }}
               >
                 Cart

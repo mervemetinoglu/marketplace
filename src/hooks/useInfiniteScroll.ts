@@ -1,16 +1,10 @@
-import React, {
-  useRef,
-  useState,
-  useEffect,
-  useCallback,
-  useMemo,
-} from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import _ from 'lodash';
 
 export interface IInfiniteScrollProps {
-  listRef: React.MutableRefObject<null | HTMLDivElement>;
-  getNextPage: () => Promise<void>;
   isLastPage: boolean;
+  getNextPage: () => Promise<void>;
+  listRef: React.MutableRefObject<null | HTMLDivElement>;
 }
 
 export const useInfiniteScroll = (props: IInfiniteScrollProps) => {
@@ -31,11 +25,11 @@ export const useInfiniteScroll = (props: IInfiniteScrollProps) => {
 
     if (
       window.innerHeight + document.documentElement.scrollTop <
-      lastItemElement.offsetTop - 200
+      lastItemElement.offsetTop - 400
     ) {
       return;
     }
-    
+
     setIsFetching(true);
     await getNextPage();
     setIsFetching(false);

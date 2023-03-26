@@ -20,17 +20,18 @@ export const ProductListItemContent = (props: IProductListItemContentProps) => {
           whiteSpace: 'nowrap',
           textOverflow: 'ellipsis',
           textTransform: 'capitalize',
+          color: (theme) => theme.customColors.productCard.title,
         }}
       >
         {title}
       </Typography>
       <Typography
         variant="body2"
-        color="textSecondary"
         sx={{
           mt: 1,
           height: '3.6rem',
           overflow: 'hidden',
+          color: (theme) => theme.customColors.productCard.description,
         }}
       >
         {description}
