@@ -8,10 +8,10 @@ To clone and run this application, you'll need [Git](https://git-scm.com), [Node
 
 ```bash
 # Clone this repository
-$ git clone https://github.com/mervemetinoglu/fazla-case-study
+$ git clone https://github.com/mervemetinoglu/marketplace
 
 # Go into the repository
-$ cd fazla-case-study
+$ cd marketplace
 
 # Install dependencies
 $ yarn install
